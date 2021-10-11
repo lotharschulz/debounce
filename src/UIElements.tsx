@@ -35,10 +35,7 @@ function Elements() {
     }
   }  
 
-  const saveFieldValue = (fieldId: number, fieldValue: string) => {
-    // console.log(`Saving field ${fieldId} value ${fieldValue}`);
-    saveToDB(fieldValue);
-  };
+  const saveFieldValue = (fieldId: number, fieldValue: string) => saveToDB(fieldValue);
 
   const saveFieldValueDebounced = AwesomeDebouncePromise(
     saveFieldValue,
@@ -46,15 +43,9 @@ function Elements() {
     { key: fieldId => fieldId },
   );
   
-  const onFieldTextChangeDebounce = async (fieldId: number, fieldValue: string) => {
-    // console.log(`onFieldTextChangeDebounce field ${fieldId} value ${fieldValue}`);
-    await saveFieldValueDebounced(fieldId, fieldValue);
-  };
+  const onFieldTextChangeDebounce = async (fieldId: number, fieldValue: string) => await saveFieldValueDebounced(fieldId, fieldValue);
 
-  const onFieldTextChangeDirect = (fieldValue: string) => {
-    // console.log(`onFieldTextChangeDirect value ${fieldValue}`);
-    saveToDB(fieldValue);
-  };
+  const onFieldTextChangeDirect = (fieldValue: string) => saveToDB(fieldValue);
 
   const onDelayInputFieldChange = (fieldValue: string) => {
     const onlyNums = fieldValue.replace(/[^0-9]/g, '');
