@@ -78,8 +78,8 @@ function Elements() {
         label="read only database value"
         variant="outlined"
         inputProps={
-					{ readOnly: true, }
-				}
+	  { readOnly: true, }
+	}
       />
       </p>
       <hr/>
